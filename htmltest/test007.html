@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+
+    <style>
+        body {
+
+            background: url('bg002.webp') rgba(82, 95, 191, 0.3) no-repeat center center;
+            background-size: 120vw 112vh;
+        }
+
+        .头像01 {
+            width: 280px;
+            height: 300px;
+            position: absolute;
+            left: 14.51vw;
+            /* 220px / 1473px */
+            top: 3.46vh;
+        }
+
+        .container {
+            background-color: rgb(75, 175, 190);
+            width: 40.75vw;
+            /* 600px / 1473px */
+            height: 98.77vh;
+            /* 800px / 810px */
+            margin: 3.40vw auto;
+            /* 50px / 1473px */
+            opacity: 0.95;
+            border-radius: 0.20vw;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #29284b;
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+
+        .tab {
+
+
+            flex: 0px;
+            font-size: medium;
+            text-align: center;
+            height: 1.37vw;
+            /* 20px / 14.73vw (假设视口宽度为1440px) */
+            line-height: 1.37vw;
+
+        }
+
+        .tab:hover {
+            background-color: aquamarine;
+        }
+
+        .content-box {
+            display: flex;
+        }
+
+        .content {
+            display: none;
+            font-size: small;
+            height: 31.84vh;
+            /* 500px 转换为 vh 单位 */
+            padding: 3.40vh;
+        }
+
+        .tab.active {
+            background-color: rgb(117, 169, 225);
+            color: #fff;
+        }
+
+
+        .content.active {
+
+            display: block;
+        }
+
+
+
+
+
+        .more a {
+            display: none;
+            text-decoration: none
+        }
+
+        .navi {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100.23vw;
+            /* 1550px 转换为 vw 单位 */
+            height: 1.85vh;
+            background-color: #0d537e;
+        }
+
+        .more {
+            font-family: 自定义字体001;
+            margin: 0px;
+            position: absolute;
+            left: 93.05%;
+            /* 1459px 转换为视口宽度的百分比 */
+            top: 0px;
+            /* 0px 保持不变 */
+            width: 6.11vw;
+            /* 90px 转换为 vw 单位 */
+            height: 10.49vh;
+            text-align: end;
+
+        }
+
+        .下拉栏 {
+            text-align: center;
+        }
+
+        h6:hover a {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #5586ee;
+            border-radius: 1px;
+        }
+
+        table {
+            width: 20.37vw;
+            border-collapse: collapse;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid rgb(6, 62, 141);
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+
+            text-align: center;
+
+        }
+
+        th {
+            background-color: #a59eb9;
+
+        }
+
+        td {
+            background-color: #e7e4f0;
+        }
+
+        .left {
+            width: 3.39vw;
+        }
+
+        .right {
+            width: 3.39vw;
+        }
+
+        table {
+            position: absolute;
+            left: 49.24vw;
+            /* 740px 转换为 vw 单位 */
+            top: 14vh;
+        }
+
+        @font-face {
+            font-family: '自定义字体001';
+            src: url(字体001.ttf);
+        }
+
+        @font-face {
+            font-family: '自定义字体002';
+            src: url(字体002.ttf);
+        }
+
+        .侧栏00 {
+            width: 5.54vw;
+            writing-mode: vertical-rl;
+            color: #407ee2;
+            font-size: 3.04vw;
+            font-family: '自定义字体001';
+            position: absolute;
+            left: 66vw;
+            top: 18vh;
+        }
+
+        .侧栏01 {
+            width: 5.43vw;
+            /* 80px 转换为 vw 单位 */
+            height: 71.17vh;
+            writing-mode: vertical-rl;
+            color: #1680d1;
+            font-size: 2.51vw;
+            font-family: '自定义字体001';
+            position: absolute;
+            left: 20.72vw;
+            /* 320px 转换为 vw 单位 */
+            top: 45.08vh;
+        }
+
+        .侧栏02 {
+            width: 5.43vw;
+            /* 80px 转换为 vw 单位 */
+            height: 60.50vh;
+            writing-mode: vertical-rl;
+            word-wrap: break-word;
+            color: #d0da43;
+            font-size: 2.51vw;
+            font-family: '自定义字体001';
+            position: absolute;
+            left: 20.72vw;
+            /* 320px 转换为 vw 单位 */
+            top: 37.96vh;
+        }
+
+        .侧栏03 {
+            width: 5.43vw;
+            /* 80px 转换为 vw 单位 */
+            height: 80.50vh;
+            writing-mode: vertical-rl;
+            color: #971579;
+            font-size: 2.3vw;
+            font-family: '自定义字体001';
+            position: absolute;
+            left: 20.72vw;
+            /* 320px 转换为 vw 单位 */
+            top: 33.96vh;
+        }
+
+        .侧栏04 {
+            width: 80px;
+            height: 80.50vh;
+
+            writing-mode: vertical-rl;
+            color: #d31414c9;
+            font-size: 2.6vw;
+            font-family: '自定义字体001';
+            position: absolute;
+            left: 20.72vw;
+            /* 320px 转换为 vw 单位 */
+            top: 30.96vh;
+        }
+
+        .介绍00 {
+            position: absolute;
+            top: 12.64vh;
+            /* 115px 转换为 vh 单位 */
+            left: 31.77vw;
+            /* 490px 转换为 vw 单位 */
+            font-size: 1.57vw;
+
+        }
+
+        .介绍01 {
+            width: 16.29vw;
+            word-wrap: break-word;
+            position: absolute;
+            top: 2.97vh;
+            /* 25px 转换为 vh 单位 */
+            left: 0.14vw;
+            line-height: 1.6;
+        }
+
+        .介绍02 {
+            width: 36.29vw;
+            font-family: '自定义字体001';
+            font-size: 2.84vw;
+            word-wrap: break-word;
+            position: absolute;
+            top: 52.67vh;
+            /* 450px 转换为 vh 单位 */
+            left: 0.10vw;
+            line-height: 2.4;
+        }
+
+        .日志::-webkit-scrollbar {
+            display: none;
+        }
+
+        .日志 {
+            overflow-y: auto;
+            width: 33.04vw;
+            /* 500px 转换为 vw 单位 */
+            height: 77.81vh;
+            /* 700px 转换为 vh 单位 */
+            font-size: 1.8vw;
+            word-wrap: break-word;
+            position: absolute;
+            top: 14.81vh;
+            /* 120px 转换为 vh 单位 */
+            left: 32.59vw;
+            line-height: 1.6;
+        }
+
+        .经历::-webkit-scrollbar {
+            display: none;
+            /* Edge浏览器隐藏滚动条方法！！！牢记！ */
+        }
+
+        .经历 {
+            overflow-y: auto;
+            width: 33.94vw;
+            /* 500px 转换为 vw 单位 */
+            height: 88.21vh;
+            font-family: '自定义字体002';
+            font-size: 1.02vw;
+            word-wrap: break-word;
+            position: absolute;
+            left: 32.59vw;
+            /* 480px 转换为 vw 单位 */
+            top: 11.49vh;
+            /* 85px 转换为 vh 单位 */
+
+            line-height: 1.6;
+        }
+
+        .相册内容 {
+            column-count: 3;
+            margin: 0.14vw;
+            column-gap: 0.14vw;
+        }
+
+        .相册内容 img {
+            width: 100%;
+            object-fit: auto;
+        }
+
+        #忆 {
+            position: absolute;
+            top: 44.44vh;
+            /* 360px 转换为 vh 单位 */
+            left: 44.81vw;
+            font-family: '自定义字体002';
+            font-size: 12.22vw;
+        }
+
+        #底端 {
+            position: absolute;
+            left: 31.03vw;
+            /* 457px 转换为 vw 单位 */
+            top: 106.05vh;
+            /* 859px 转换为 vh 单位 */
+            width: 40.73vw;
+            /* 600px 转换为 vw 单位 */
+            height: 2.47vh;
+        }
+    </style>
+</head>
+
+<body>
+    <embed src="music001.mp3" hidden autoplay="autoplay" loop>
+    <div class="navi">
+        <h6 class="more">更多
+            <a href="https://x.com/notifications" target="_blank" rel="noopener noreferrer" class="下拉栏">box00xのX</a>
+            <a href="https://github.com/Amazingbox07/box001" target="_blank" rel="noopener noreferrer"
+                class="下拉栏">box00x的hub</a>
+            <a href="https://space.bilibili.com/3546721671973615?spm_id_from=333.1007.0.0" target="_blank"
+                rel="noopener noreferrer" class="下拉栏">box001的B站</a>
+            <a href="http://2410301341@stu.pku.edu.cn" target="_blank" rel="noopener noreferrer"
+                class="下拉栏">box001的邮箱</a>
+        </h6>
+    </div>
+    <div class="container">
+        <ul class="tabs">
+            <p class="侧栏00">欢迎来到————我的世界！</p>
+            <li class="tab active">简介</li>
+            <li class="tab">履历 </li>
+            <li class="tab">相册</li>
+            <li class="tab">开发日志</li>
+        </ul>
+        <div class="content-box">
+            <section class="content active">
+                <p class="侧栏01">不要叫醒我，我不在梦里...</p>
+                <h1 class="介绍00">Ciallo～(∠・ω< )⌒☆! <p class="介绍01">&nbsp;&nbsp;吾乃 ——————
+                        渴望初火の余烬、&nbsp;&nbsp;&nbsp;&nbsp;
+                        黄金律法的叛逆者、&nbsp;
+                        探求未知的外乡人、&nbsp; 波纹的传承之人、&nbsp;&nbsp;&nbsp;&nbsp; 绝不会承认———— 那般结局的创作者......
+                        &nbsp;&nbsp;开玩笑~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        我只是学园都市一名随&nbsp;&nbsp;处&nbsp;&nbsp;可&nbsp;&nbsp;见&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 的高中生罢了（）...... &nbsp;&nbsp;
+                        </p>
+                        <p class="介绍02">&nbsp; 总而言之本机为box序列00X号个体，请多关照......</p>
+                </h1>
+
+                <table>
+
+                    <tr>
+                        <th colspan="2">基本资料</th>
+                    </tr>
+                    <tr>
+                        <td class="left">本名</td>
+                        <td class="right">#%&（无法识别）</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">编号</td>
+                        <td class="right">box00X</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">发色</td>
+                        <td class="right">黑色</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">瞳色</td>
+                        <td class="right">黑色</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">身高</td>
+                        <td class="right">1xx cm</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">体重</td>
+                        <td class="right">xx kg</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">生理年龄</td>
+                        <td class="right">xx</td>
+
+                    </tr>
+                    <tr>
+                        <td class="left">生日</td>
+                        <td class="right">x月x日</td>
+                    </tr>
+                    <tr>
+                        <td class="left">血型</td>
+                        <td class="right">O型</td>
+                    </tr>
+                    <tr>
+                        <td class="left">性别</td>
+                        <td class="right">*@%（无法观测）</td>
+                    </tr>
+                    <tr>
+                        <td class="left">星座</td>
+                        <td class="right">天蝎座</td>
+                    </tr>
+                    <tr>
+                        <td class="left">出生地区</td>
+                        <td class="right">蓝星</td>
+                    </tr>
+                    <tr>
+                        <td class="left">活动范围</td>
+                        <td class="right">￥&*%（未知）</td>
+
+
+                    </tr>
+                </table>
+            </section>
+            <section class="content">
+                <p class="经历">
+                    20XX年<br>第一次踏入这个神秘的国度，跟随着背负江户川之名的侦探去探寻真相。
+                    <br>20XX年<br>
+                    名为pokémon的奇异生物引起了box00X的注意，后者跟随名为小智的向导，迈向了一场25年的夺冠之征。
+                    <br>20XX年<br>
+                    “可恶~”名为木之本樱的雌性个体该死得甜美，box00X于是抛下小智，进而与樱享受了一段校园时光。
+                    <br>20XX年<br>
+                    时间线发生变动，名为查克拉的神秘力量充盈着box00X的身体，后者由此结识了一位想要成为“火影”的少年（火影，当地传承下来对英雄的一种称呼），
+                    不过后续box00X发现那位少年只是在追夫罢了......
+                    <br>20XX年<br>
+                    “时机已到。”box00X与漆黑的骑士团一同举起反旗，转战新O、琦O等地，以gease之名，向布里塔尼亚宣告：错的不是我，而是这个世界......
+                    <br>20XX年<br>
+                    box00X偶遇一位白发褐肤的厨师，进而成为了冬木市“连环瓦斯泄漏事件”的见证者。
+                    <br>20XX年<br>
+                    “绝望了！对这个中二病也逃避不了现实的世界绝望辣！”box00X说着，在某个南方小岛上迷路了一段时间......
+                    <br>20XX年<br>
+                    box00X觉醒了替身之力（），可惜由于实战强度甚至低于“紫色隐者”，“被迫”在杜王町度过了一段平静の人生。
+                    <br>20XX年<br>
+                    box00X在一栋疑似教堂的地下室中被一位绷带怪人追杀，但后者因注意力转向一位金发蓝瞳的雌性个体，进而放弃了对box00X的追杀......
+                    box00X转而有余裕地食用二人的狗粮，进而度过了一段姨母笑的时间。
+                    <br>20XX年<br>
+                    box00X收割下倒数第二握麦子，坐上马车，以旅行商人的学徒的身份见证了一段田园牧歌式的爱情。
+                    <br>2024年<br>
+                    box00X来到燕园，兴奋与紧张交织的同时，成为了一名元火子，进而开启一段蔷薇色（？）的大学生活。
+                    目前苦逼地设计个人网页中......
+                </p>
+                <p class="侧栏02">吾心吾行澄如明镜———— ————所作所为皆为<正义>
+                </p>
+            </section>
+            <section class="content">
+                <div class="相册内容">
+                    <a href="柯南.html" target="_blank" rel="noopener noreferrer"><img src="08 (1).png" alt=""></a>
+                    <a href="宝可梦.html" target="_blank" rel="noopener noreferrer"><img src="07 (1).png" alt=""></a>
+                    <a href="樱.html" target="_blank" rel="noopener noreferrer"><img src="10 (1).png" alt=""></a>
+                    <a href="火影.html" target="_blank" rel="noopener noreferrer"><img src="05 (1).png" alt=""></a>
+                    <a href="FSN.html" target="_blank" rel="noopener noreferrer"><img src="06 (1).png" alt=""></a>
+                    <a href="jojo.html" target="_blank" rel="noopener noreferrer"><img src="09 (1).png" alt=""></a>
+                    <a href="鲁鲁修.html" target="_blank" rel="noopener noreferrer"><img src="01 (1).png" alt=""></a>
+                    <a href="天使.html" target="_blank" rel="noopener noreferrer"><img src="03 (1).png" alt=""></a>
+                    <a href="狼辛.html" target="_blank" rel="noopener noreferrer"><img src="04 (1).png" alt=""></a>
+                    <a href="老师.html" target="_blank" rel="noopener noreferrer"><img src="02 (3).png" alt=""></a>
+                </div>
+                <p id="忆">忆</p>
+                <p class="侧栏03">游荡的孤高<灵魂>不需要<羁>留之所!</p>
+            </section>
+            <section class="content">
+                <div class="日志">
+                    <p>
+                        10月11日
+                        <br>收到关于制作个人网页的作业要求。
+                    <pre>
+
+                </pre>
+                    <br>10月13日<br>纸上初步设计完成。
+                    <pre>
+
+                </pre><br>10月19日<br>技术力支持基本就绪（学习了css、js用法）；同日开始动工。
+                    <pre>
+
+                </pre><br>10月20日
+                    <br>夕阳的最后一缕光辉亦将没入山峦，与残云一同晕染出微醺色的天空，box00X缓缓踱向这片晚景，心中了无牵挂————他完成了。
+                    <pre>
+
+                </pre><br>
+                    10月20日 晚<br>苦逼的检查中......
+                </div>
+                <p class="侧栏04">木叶<飞舞>之<处>，火亦生生不息!</p>
+            </section>
+        </div>
+    </div>
+    <script>
+        let tabs = document.querySelectorAll('.tab');
+        let contents = document.querySelectorAll('.content');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].onclick = function () {
+                for (let j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove('active');
+                    contents[j].classList.remove('active');
+                }
+                this.classList.add('active');
+                contents[i].classList.add('active');
+            };
+        }
+    </script>
+    <div>
+
+    </div>
+    <img class="头像01" src="bg005.png" alt="">
+    <img id="底端" src="图集\003.png" alt="">
+</body>
+
+</html>

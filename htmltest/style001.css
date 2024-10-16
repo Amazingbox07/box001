@@ -1,0 +1,13 @@
+body {
+  background-image: url(bg002.webp);
+  background-size: 100vw 100vh; /* 2000px宽和1100px高，相对于视口宽度和高度的比例是1:1 */
+  background-repeat: no-repeat;
+  background-color: aqua;
+}
+
+div {
+  position: absolute;
+  left: 40vw; /* 630px / 2000px = 0.315, 然后乘以100转换为vw */
+  top: 42.73vh; /* 350px / 1100px = 0.3181818181818182, 然后乘以100转换为vh */
+  opacity: 0.8;
+}

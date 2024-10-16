@@ -5,29 +5,29 @@ body {
 
 @font-face {
   font-family: '自定义字体001';
-  src: url(字体001.ttf);
+  src: url('字体001.ttf');
 }
 
 p {
   position: absolute;
   font-family: '自定义字体001';
-  left: 220px;
-  top: 220px;
-  font-size: 90px;
+  left: 14.79vw; /* 220px / 1900px = 0.11579, 然后乘以100转换为vw */
+  top: 28.44vh; /* 220px / 9000px = 0.02444, 然后乘以100转换为vh */
+  font-size: 5.74vw; /* 90px / 1900px = 0.04736842105263158, 然后乘以100转换为vw */
 }
 
 h1 {
   position: absolute;
   font-family: '自定义字体001';
-  left: 300px;
-  top: 350px;
-  font-size: 150px
+  left: 15.79vw; /* 300px / 1900px = 0.1579, 然后乘以100转换为vw */
+  top: 50.89vh; /* 350px / 9000px = 0.03888888888888889, 然后乘以100转换为vh */
+  font-size: 7.89vw; /* 150px / 1900px = 0.07894736842105263, 然后乘以100转换为vw */
 }
 
 h2 {
   position: absolute;
   font-family: '自定义字体001';
-  left: 950px;
-  top: 300px;
-  font-size: 170px
+  left: 69.74vw; /* 950px / 1900px = 0.4994736842105263, 然后乘以100转换为vw */
+  top: 44.89vh; /* 350px / 9000px = 0.03888888888888889, 然后乘以100转换为vh */
+  font-size: 16.72vh; /* 87.5px / 9000px = 0.009722222222222222, 然后乘以100转换为vh */
 }
